@@ -11,20 +11,28 @@ use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 
 class CorvetLightFieldBundle extends AbstractBundle
 {
+    /**
+     * Цей метод викликається автоматично ДO того, як завантажаться основні сервіси.
+     * Тут ми "підмішуємо" (prepend) наші налаштування в Twig, якщо він увімкнений у проекті.
+     */
+    public function prependExtension(ContainerConfigurator $container, ContainerBuilder $builder): void
+    {
+        // Перевіряємо, чи взагалі у додатку встановлено і увімкнено TwigBundle
+        if ($builder->hasExtension('twig')) {
+            $container->extension('twig', [
+                'paths' => [
+                    dirname(__DIR__) . '/templates' => 'CorvetLightField',
+                ],
+                'form_themes' => [
+                    '@CorvetLightField/form_theme.html.twig',
+                ],
+            ]);
+        }
+    }
+
     public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
     {
-        // Реєструємо наш шлях до Twig-шаблонів бандлу
-        $container->extension('twig', [
-            'paths' => [
-                dirname(__DIR__) . '/templates' => 'CorvetLightField',
-            ],
-        ]);
-
-        // Автоматично додаємо наш шаблон до списку глобальних Form Themes основного додатка
-        $container->extension('twig', [
-            'form_themes' => [
-                '@CorvetLightField/form_theme.html.twig',
-            ],
-        ]);
+        // Метод можна залишити порожнім, якщо ми не реєструємо власні PHP-сервіси через сервіс-контейнер.
+        // Уся робота з Twig тепер безпечно перенесена в prependExtension.
     }
 }
