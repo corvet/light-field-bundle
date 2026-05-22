@@ -1,8 +1,11 @@
 {% block corvet_masked_date_widget %}
-	<div {{ block('widget_container_attributes') }}>
-		<div class="input-group" data-controller="corvet--light-field-bundle--main">
-			{{ form_widget(form, { 'attr': { 'class': 'form-control masked-date-input' } }) }}
-			<button class="btn btn-outline-secondary masked-date-btn" type="button">📅</button>
-		</div>
-	</div>
+	<fieldset class="masked-date-widget" data-controller="corvet--light-field-bundle--main">
+		<legend>{{ legend }}</legend>
+
+		{{ block('form_widget_simple') }}
+
+		<button type="button" class="masked-date-btn">
+			📅
+		</button>
+	</fieldset>
 {% endblock %}

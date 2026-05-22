@@ -1,4 +1,4 @@
-# Corvet Light Field Bundle
+# Corvet Light Fields Bundle
 
 Custom masked date input field with integrated Flatpickr calendar and custom footer buttons (Today / Clear) for Symfony 8+ and AssetMapper (Symfony UX).
 
@@ -25,14 +25,15 @@ Since this bundle relies on `flatpickr` and `inputmask` via AssetMapper, import 
 
 ```bash
 php bin/console importmap:require flatpickr inputmask
+bin/console importmap:require flatpickr/dist/themes/dark.css
 ```
 
 ## Usage
 
-Simply use `MaskedDateType::class` in your Symfony forms:
+Simply use `LightDateType::class` in your Symfony forms:
 
 ```php
-use Corvet\LightFieldBundle\Form\MaskedDateType;
+use Corvet\LightFieldBundle\Form\LightDateType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -40,7 +41,7 @@ class OrderType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder->add('createdAt', MaskedDateType::class, [
+        $builder->add('createdAt', LightDateType::class, [
             'label' => 'Select Date',
         ]);
     }

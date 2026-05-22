@@ -1,11 +1,12 @@
 import { Controller } from '@hotwired/stimulus';
 import Inputmask from 'inputmask';
 import flatpickr from 'flatpickr';
-import './styles.css'; // Імпортуємо стилі прямо в JS
+import './styles.css';
+import 'flatpickr/dist/themes/dark.css';
 
 export default class extends Controller {
     connect() {
-        this.inputElement = this.element.querySelector('.masked-date-input');
+        this.inputElement = this.element.querySelector('input');
         this.buttonElement = this.element.querySelector('.masked-date-btn');
 
         if (!this.inputElement || !this.buttonElement) return;
@@ -62,6 +63,10 @@ export default class extends Controller {
         this.buttonElement.addEventListener('click', (e) => {
             e.preventDefault();
             fpInstance.toggle();
+        });
+
+        this.inputElement.addEventListener('focus', () => {
+            fpInstance.close();
         });
     }
 }

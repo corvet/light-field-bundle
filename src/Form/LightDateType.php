@@ -12,7 +12,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class MaskedDateType extends AbstractType
+class LightDateType extends AbstractType
 {
     public function buildForm(
         FormBuilderInterface $builder, 

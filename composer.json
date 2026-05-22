@@ -1,6 +1,6 @@
 {
     "name": "corvet/light-field-bundle",
-    "description": "Custom date fields with masked for Symfony 8",
+    "description": "Custom fields with masked for Symfony 8",
     "type": "symfony-bundle",
     "license": "MIT",
     "authors": [
