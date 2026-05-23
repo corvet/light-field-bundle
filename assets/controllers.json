@@ -1,7 +1,7 @@
 {
     "controllers": {
         "corvet/light-field-bundle": {
-            "light-date-field": {
+            "light-date": {
                 "enabled": true,
                 "fetch": "eager"
             }
