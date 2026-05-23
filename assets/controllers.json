@@ -1,0 +1,11 @@
+{
+    "controllers": {
+        "corvet/light-field-bundle": {
+            "light-date-field": {
+                "enabled": true,
+                "fetch": "eager"
+            }
+        }
+    },
+    "entrypoints": []
+}
