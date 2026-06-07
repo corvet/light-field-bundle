@@ -1,0 +1,6 @@
+services:
+    Corvet\LightFieldBundle\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
