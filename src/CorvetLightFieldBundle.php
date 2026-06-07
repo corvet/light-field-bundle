@@ -32,7 +32,15 @@ class CorvetLightFieldBundle extends AbstractBundle
 
     public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
     {
-        // Метод можна залишити порожнім, якщо ми не реєструємо власні PHP-сервіси через сервіс-контейнер.
-        // Уся робота з Twig тепер безпечно перенесена в prependExtension.
+        // Налаштовуємо автоконфігурацію для класів бандла
+        $services = $container->services();
+
+        $services->defaults()
+            ->autowire()
+            ->autoconfigure(); // Це найважливіше: воно змусить Symfony бачити атрибут #[AsCommand]
+
+        // Автоматично завантажуємо команду з папки Command
+        $services->set(Command\CorvetInstallCommand::class)
+            ->tag('console.command'); // Явно вказуємо тег для консольних команд
     }
 }
