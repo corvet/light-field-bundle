@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Corvet\LightFieldBundle\Command;
 
+use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -18,8 +19,11 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 )]
 class CorvetInstallCommand extends Command
 {
-    public function __construct()
+    private LoggerInterface $logger;
+
+    public function __construct(LoggerInterface $logger)
     {
+        $this->logger = $logger;
         parent::__construct();
     }
 
@@ -43,6 +47,11 @@ class CorvetInstallCommand extends Command
         if ($input->getOption('option1')) {
             // ...
         }
+
+        // TODO: make logic for importmap.php
+        $this->logger->log('INFO', 'Executed corvet:install command', [
+            'class' => self::class,            
+        ]);
 
         $io->success('You have a new command! Now make it your own! Pass --help to see your options.');
 
