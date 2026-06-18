@@ -15,7 +15,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class LightDateType extends AbstractType
 {
     public function buildForm(
-        FormBuilderInterface $builder, 
+        FormBuilderInterface $builder,
         array $options
     ): void {
         $builder->addViewTransformer(new DateTimeToStringTransformer(
@@ -26,8 +26,8 @@ class LightDateType extends AbstractType
     }
 
     public function buildView(
-        FormView $view, 
-        FormInterface $form, 
+        FormView $view,
+        FormInterface $form,
         array $options
     ): void {
         // Додаємо Stimulus-контролер до атрибутів інпута або батьківського div через скінченний додаток
@@ -53,6 +53,6 @@ class LightDateType extends AbstractType
 
     public function getBlockPrefix(): string
     {
-        return 'corvet_masked_date';
+        return 'corvet_light_date';
     }
 }
