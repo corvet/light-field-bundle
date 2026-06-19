@@ -1,8 +1,0 @@
-{
-    "controllers": {
-        "light-date": {
-            "enabled": true,
-            "main": "controllers/light_date_controller.js"
-        }
-    }
-}

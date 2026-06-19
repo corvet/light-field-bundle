@@ -1,0 +1,33 @@
+{
+    "name": "@corvet/light-field-bundle",
+    "description": "light field bundle",
+    "license": "MIT",
+    "version": "1.0.15",
+    "keywords": [
+        "symfony-ux"
+    ],
+    "repository": "https://corvet/light-field-bundle",
+    "type": "module",
+    "symfony": {
+        "controllers": {
+            "light-date": {
+                "main": "controllers/light_date_controller.js",
+                "fetch": "eager",
+                "enabled": true,
+                "autoimport": {
+                    "@corvet/light-field-bundle/styles/light_date_field.css": true
+                }
+            }
+        },
+        "importmap": {
+            "inputmask": "^5.0.9",
+            "flatpickr": "4.6.13"
+        }
+    },
+    "peerDependencies": {
+        "@hotwired/stimulus": "^3.0.0"
+    },
+    "devDependencies": {
+        "@hotwired/stimulus": "^3.0.0"
+    }
+}
