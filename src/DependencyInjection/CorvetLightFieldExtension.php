@@ -12,12 +12,8 @@ use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 
 class CorvetLightFieldExtension extends Extension implements PrependExtensionInterface
 {
-    /**
-     * Завантаження сервісів (вашого B01DateType)
-     */
     public function load(array $configs, ContainerBuilder $container): void
     {
-        // Завантажуємо конфігурацію сервісів з config/services.php
         $loader = new PhpFileLoader($container, new FileLocator(__DIR__ . '/../../config'));
         $loader->load('services.php');
     }
@@ -27,7 +23,6 @@ class CorvetLightFieldExtension extends Extension implements PrependExtensionInt
      */
     public function prepend(ContainerBuilder $container): void
     {
-        // 1. Автоматична реєстрація ассетів в AssetMapper
         if ($container->hasExtension('framework')) {
             $container->prependExtensionConfig('framework', [
                 'asset_mapper' => [
@@ -39,7 +34,6 @@ class CorvetLightFieldExtension extends Extension implements PrependExtensionInt
             ]);
         }
 
-        // 2. Автоматична реєстрація Form Theme в Twig
         if ($container->hasExtension('twig')) {
             $container->prependExtensionConfig('twig', [
                 'paths' => [
@@ -52,12 +46,8 @@ class CorvetLightFieldExtension extends Extension implements PrependExtensionInt
         }
     }
 
-    /**
-     * Офіційний UX-стиль вимагає унікального аліасу конфігурації в dependency injection.
-     * За замовчуванням Symfony згенерує "sb_privat_b01".
-     */
     public function getAlias(): string
     {
-        return 'sb_privat_b01';
+        return 'corvet__light_field';
     }
 }
