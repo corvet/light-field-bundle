@@ -2,54 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Corvet\LightFieldBundle;
+namespace SbPrivat\B01Bundle;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
+use Corvet\LightFieldBundle\DependencyInjection\CorvetLightFieldExtension;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class CorvetLightFieldBundle extends AbstractBundle
+class SbPrivatB01Bundle extends Bundle
 {
     /**
-     * Цей метод викликається автоматично ДO того, як завантажаться основні сервіси.
-     * Тут ми "підмішуємо" (prepend) наші налаштування в Twig, якщо він увімкнений у проекті.
+     * За замовчуванням Symfony шукає Extension за назвою бандлу.
+     * Якщо назва класу SbPrivatB01Bundle, то очікується SbPrivatB01Extension.
+     * Якщо структура стандартна, цей метод можна навіть не перевизначати,
+     * але для надійності та контролю ми його залишаємо.
      */
-    public function prependExtension(ContainerConfigurator $container, ContainerBuilder $builder): void
+    protected function getContainerExtensionClass(): string
     {
-        // Перевіряємо, чи взагалі у додатку встановлено і увімкнено TwigBundle
-        if ($builder->hasExtension('twig')) {
-            $container->extension('twig', [
-                'paths' => [
-                    dirname(__DIR__) . '/templates' => 'CorvetLightField',
-                ],
-                'form_themes' => [
-                    '@CorvetLightField/form_theme.html.twig',
-                ],
-            ]);
-        }
-
-        // 2. Налаштування AssetMapper (Замість старого Extension-класу)
-        if ($builder->hasExtension('framework')) {
-            $container->extension('framework', [
-                'asset_mapper' => [
-                    'paths' => [
-                        // Вказуємо на корінь папки assets вашого бандлу
-                        dirname(__DIR__) . '/assets' => '@corvet/light-field-bundle',
-                    ],
-                ],
-            ]);
-        }
-    }
-
-    public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
-    {
-        $services = $container->services();
-
-        $services->defaults()
-            ->autowire()
-            ->autoconfigure();
-
-        $services->set(Command\CorvetInstallCommand::class)
-            ->tag('console.command');
+        return CorvetLightFieldExtension::class;
     }
 }
