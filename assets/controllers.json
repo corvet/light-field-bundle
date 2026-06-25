@@ -1,0 +1,9 @@
+{
+    "controllers": {
+        "light-date": {
+            "main": "controllers/light_date_controller.js",
+            "fetch": "eager"
+        }
+    },
+    "entrypoints": []
+}
