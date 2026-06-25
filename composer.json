@@ -30,6 +30,22 @@
     "extra": {
         "symfony": {
             "bundle": "Corvet\\LightFieldBundle\\CorvetLightFieldBundle"
+        },
+        "recipes": {
+            "light-field-recipe": {
+                "manifest": {
+                    "assets/controllers.json": {
+                        "controllers": {
+                            "@corvet/light-field-bundle": {
+                                "light-date": {
+                                    "enabled": true,
+                                    "fetch": "eager"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

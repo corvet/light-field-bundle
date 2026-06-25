@@ -7,10 +7,7 @@
                 "main": "controllers/light_date_controller.js",
                 "webpackMode": "eager",
                 "fetch": "eager",
-                "enabled": true,
-                "autoimport": {
-                    "@corvet/light-field-bundle/assets/styles/style.css": true
-                }
+                "enabled": true
             }
         },
         "importmap": {
