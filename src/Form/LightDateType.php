@@ -53,6 +53,6 @@ class LightDateType extends AbstractType
 
     public function getBlockPrefix(): string
     {
-        return 'corvet_light_date';
+        return 'corvet__light_field__light_date';
     }
 }

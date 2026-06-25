@@ -1,0 +1,21 @@
+{
+    "name": "@corvet/light-field-bundle",
+    "version": "1.0.0",
+    "symfony": {
+        "controllers": {
+            "corvet--light-field--light-date": {
+                "main": "controllers/corvet__light_field__light_date_controller.js",
+                "webpackMode": "eager",
+                "fetch": "eager",
+                "enabled": true,
+                "autoimport": {
+                    "@corvet/light-field-bundle/assets/styles/style.css": true
+                }
+            }
+        },
+        "importmap": {
+            "inputmask": "^5.0.9",
+            "flatpickr": "^4.6.13"
+        }
+    }
+}

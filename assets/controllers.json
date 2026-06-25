@@ -1,0 +1,9 @@
+{
+    "controllers": {
+        "corvet--light-field--light-date": {
+            "main": "controllers/corvet__light_field__light_date_controller.js",
+            "fetch": "eager"
+        }
+    },
+    "entrypoints": []
+}
