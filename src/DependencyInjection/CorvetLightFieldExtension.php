@@ -48,6 +48,6 @@ class CorvetLightFieldExtension extends Extension implements PrependExtensionInt
 
     public function getAlias(): string
     {
-        return 'corvet__light_field';
+        return 'corvet_light_field';
     }
 }

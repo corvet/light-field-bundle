@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SbPrivat\B01Bundle;
+namespace Corvet\LightFieldBundle;
 
 use Corvet\LightFieldBundle\DependencyInjection\CorvetLightFieldExtension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
