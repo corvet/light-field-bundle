@@ -28,6 +28,38 @@ class CorvetLightFieldBundle extends AbstractBundle
                 ],
             ]);
         }
+        // 2. Налаштування AssetMapper (Замість старого Extension-класу)
+        if ($builder->hasExtension('framework')) {
+            $container->extension('framework', [
+                'asset_mapper' => [
+                    'paths' => [
+                        // Вказуємо на корінь папки assets вашого бандлу
+                        dirname(__DIR__) . '/assets' => '@corvet/light-field-bundle',
+                    ],
+                ],
+            ]);
+            // ----- 1.
+            // Додатково реєструємо Stimulus-директорію, якщо увімкнено StimulusBundle
+            // if ($builder->hasExtension('stimulus')) {
+            //     $container->extension('stimulus', [
+            //         'controller_paths' => [
+            //             // Кажемо Symfony, що в цій папці лежать контролери бандлу
+            //             dirname(__DIR__) . '/assets/controllers',
+            //         ],
+            //     ]);
+            // }
+            // ----- 2
+            // if ($builder->hasExtension('stimulus')) {
+            //     $builder->prependExtensionConfig('stimulus', [
+            //         // Symfony Flex та StimulusBundle налаштовані так, що при повторному
+            //         // виклику prependExtensionConfig для секції `controller_paths`
+            //         // масиви будуть автоматично ЗОБ'ЄДНАНІ, а не замінені.
+            //         'controller_paths' => [
+            //             dirname(__DIR__) . '/assets/controllers',
+            //         ],
+            //     ]);
+            // }
+        }
     }
 
     public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void

@@ -1,14 +1,11 @@
-{% block corvet_light_date_widget %}
-    <fieldset
-        class="corvet--light-date-widget"
-        data-controller="corvet--light-field-bundle--light-date"
-    >
-        <legend>{{ legend }}</legend>
+{% block corvet__light_field_bundle__light_date_widget %}
+	<fieldset class="corvet--light-date-widget" data-controller="corvet--light-field-bundle--light-date">
+		<legend>{{ legend }}</legend>
 
-        {{ block('form_widget_simple') }}
+		{{ block('form_widget_simple') }}
 
-        <button type="button">
-            📅
-        </button>
-    </fieldset>
+		<button type="button">
+			📅
+		</button>
+	</fieldset>
 {% endblock %}

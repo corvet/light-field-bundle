@@ -3,8 +3,8 @@
     "version": "1.0.0",
     "symfony": {
         "controllers": {
-            "corvet--light-field--light-date": {
-                "main": "controllers/corvet__light_field__light_date_controller.js",
+            "light-date": {
+                "main": "controllers/light_date_controller.js",
                 "webpackMode": "eager",
                 "fetch": "eager",
                 "enabled": true,

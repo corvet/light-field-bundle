@@ -31,7 +31,7 @@ class LightDateType extends AbstractType
         array $options
     ): void {
         // Додаємо Stimulus-контролер до атрибутів інпута або батьківського div через скінченний додаток
-        $view->vars['attr']['data-controller'] = 'corvet--light-field-bundle--main';
+        $view->vars['attr']['data-controller'] = 'corvet--light-field-bundle--light-date';
         $view->vars['legend'] = $options['legend'] ?? ucfirst($form->getName());
     }
 
@@ -53,6 +53,6 @@ class LightDateType extends AbstractType
 
     public function getBlockPrefix(): string
     {
-        return 'corvet__light_field__light_date';
+        return 'corvet__light_field_bundle__light_date';
     }
 }
