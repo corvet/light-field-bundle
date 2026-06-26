@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Corvet\LightFieldBundle\Helper;
 
-class StringHelper
+class LightStringHelper
 {
     public static function TrimOrNull(?string $value): ?string
     {
