@@ -9,7 +9,7 @@ import '../styles/light_date.css';
 
 export default class extends Controller {
     connect() {
-        console.log('LightDate controller works!');
+        console.log('LightDate controller works! -- corvet/light-field-bundleS');
 
         this.inputElement = this.element.querySelector('input');
         this.buttonElement = this.element.querySelector('.masked-date-btn');
