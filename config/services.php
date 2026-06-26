@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use Corvet\LightFieldBundle\Form\LightDateType;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $container): void {
@@ -13,7 +12,9 @@ return static function (ContainerConfigurator $container): void {
         ->autowire()
         ->autoconfigure();
 
-    $services
-        ->set(LightDateType::class)
-        ->tag('form.type');
+    $services->load('Corvet\\LightFieldBundle\\', '../src/*')
+        ->exclude([
+            '../src/CorvetLightFieldBundle.php',
+            '../src/DependencyInjection/',
+        ]);
 };
